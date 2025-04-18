@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Library</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Welcome to the library</h1>
@@ -30,50 +31,6 @@
     <!-- Contêiner para exibir os livros -->
     <div id="libraryDisplay"></div>
 
-    <script>
-        const dialog = document.querySelector('dialog');
-        const openDialogButton = document.getElementById('openDialog');
-        const libraryDisplay = document.getElementById('libraryDisplay');
-        const myLibrary = [];
-
-        openDialogButton.addEventListener('click', () => {
-            dialog.showModal(); // Exibe o diálogo
-        });
-
-        function Book(title, author, pages) {
-            this.title = title;
-            this.author = author;
-            this.pages = pages;
-            this.id = crypto.randomUUID();
-        }
-
-        function addBookToLibrary() {
-            const titleBook = document.getElementById("title").value;
-            const authorBook = document.getElementById("author").value;
-            const pagesBook = document.getElementById("pages").value;
-
-            const book = new Book(titleBook, authorBook, pagesBook);
-            myLibrary.push(book);
-
-            // Atualiza a exibição dos livros
-            displayBooks();
-
-            document.getElementById("title").value = "";
-            document.getElementById("author").value = "";
-            document.getElementById("pages").value = "";
-        }
-
-        function displayBooks() {
-            // Limpa o contêiner antes de renderizar
-            libraryDisplay.innerHTML = '';
-
-            // Adiciona cada livro como um elemento <h2>
-            myLibrary.forEach(book => {
-                const bookElement = document.createElement('h2');
-                bookElement.textContent = `Title: ${book.title}, Author: ${book.author}, Pages: ${book.pages}`;
-                libraryDisplay.appendChild(bookElement);
-            });
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
